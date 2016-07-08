@@ -1,5 +1,7 @@
+requires "Dist::Zilla::Role::PluginBundle::Easy" => "0";
 requires "Moose" => "0";
-requires "perl" => "5.006";
+requires "feature" => "0";
+requires "perl" => "5.010";
 requires "strict" => "0";
 requires "warnings" => "0";
 
@@ -8,13 +10,13 @@ on 'build' => sub {
 };
 
 on 'test' => sub {
-  requires "perl" => "5.006";
+  requires "perl" => "5.010";
 };
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
   requires "Module::Build" => "0.28";
-  requires "perl" => "5.006";
+  requires "perl" => "5.010";
 };
 
 on 'develop' => sub {

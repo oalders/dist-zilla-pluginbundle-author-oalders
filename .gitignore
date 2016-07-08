@@ -1,4 +1,5 @@
 .build
 /Dist-Zilla-PluginBundle-Author-OALDERS*
 local
+*.sw*
 .tidyall.d
