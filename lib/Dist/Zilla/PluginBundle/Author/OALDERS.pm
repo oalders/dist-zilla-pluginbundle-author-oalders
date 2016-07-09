@@ -4,17 +4,19 @@ use feature qw( say );
 package Dist::Zilla::PluginBundle::Author::OALDERS;
 
 use Moose;
-with(
-    'Dist::Zilla::Role::PluginBundle::Easy',
-
-    #    'Dist::Zilla::Role::PluginBundle::Config::Slicer',
-    #'Dist::Zilla::Role::PluginBundle::PluginRemover',
-);
+with('Dist::Zilla::Role::PluginBundle::Easy');
 
 sub configure {
-    my $self    = shift;
+    my $self = shift;
+
+    # Stolen from Dist::Zilla::PluginBundle::Author::DBOOK
+    my @dirty_files = qw(dist.ini Changes README.pod);
+    my @from_build  = qw(INSTALL LICENSE META.json);
+
     my @plugins = (
         'AutoPrereqs',
+        'BumpVersionAfterRelease',
+        'CheckChangesHasContent',
         'CPANFile',
         'ConfirmRelease',
         'ContributorsFile',
@@ -22,7 +24,11 @@ sub configure {
         'ExecDir',
         [ 'GithubMeta' => { issues => 1 } ],
         'ExtraTests',
+        [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
         'Git::Contributors',
+        #[ 'Git::NextVersion' => { first_version => '0.000001' } ],
+        'Git::Tag',
+        'Git::Push',
         'InstallGuide',
         'License',
         'MakeMaker',
@@ -34,12 +40,21 @@ sub configure {
         'MetaYAML',
         'MinimumPerl',
         'ModuleBuild',
+        'NextRelease',
         'PkgVersion',
         'Pod2Readme',
         'PodCoverageTests',
         'PodWeaver',
         'Prereqs',
         'PruneCruft',
+        [
+            'ReadmeAnyFromPod' => 'ReadmeMdInRoot' => {
+                filename => 'README.md',
+                location => 'root',
+                type     => 'markdown',
+            }
+        ],
+        'RewriteVersion',
         'ShareDir',
         'Test::CPAN::Changes',
         'Test::Perl::Critic',
@@ -51,39 +66,6 @@ sub configure {
     );
 
     $self->add_plugins($_) for @plugins;
-
-    # Stolen from Dist::Zilla::PluginBundle::Author::DBOOK
-    my $versioned_match = '^(?:lib|script|bin)/';
-    my @dirty_files     = qw(dist.ini Changes README.pod);
-    my @from_build      = qw(INSTALL LICENSE META.json);
-
-    $self->add_plugins(
-        'CheckChangesHasContent',
-        [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
-        'RewriteVersion',
-        [
-            NextRelease => {
-                format =>
-                    '%-9v %{yyyy-MM-dd HH:mm:ss VVV}d%{ (TRIAL RELEASE)}T'
-            }
-        ],
-        [
-            'Git::Commit' => {
-                allow_dirty => [ @dirty_files, @from_build ],
-                allow_dirty_match => $versioned_match, add_files_in => '/'
-            }
-        ],
-        'Git::Tag',
-
-        #        [ BumpVersionAfterRelease => { munge_makefile_pl => 0 } ],
-        [
-            'Git::Commit' => 'Commit_Version_Bump' => {
-                allow_dirty_match => $versioned_match,
-                commit_msg        => 'Bump version'
-            }
-        ],
-        'Git::Push'
-    );
 }
 
 __PACKAGE__->meta->make_immutable;
