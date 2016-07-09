@@ -9,10 +9,10 @@ with('Dist::Zilla::Role::PluginBundle::Easy');
 sub configure {
     my $self = shift;
 
-    # Stolen from Dist::Zilla::PluginBundle::Author::DBOOK
-    my @dirty_files = qw(dist.ini Changes README.pod);
+    my $readme = 'README.md';
+    my @dirty_files = ('dist.ini', 'Changes', $readme);
     my @from_build  = qw(INSTALL LICENSE META.json);
-    my @copy = ( 'cpanfile', 'README' );
+    my @copy = ( 'cpanfile', $readme );
 
     my @plugins = (
         'AutoPrereqs',
@@ -51,7 +51,7 @@ sub configure {
         'PruneCruft',
         [
             'ReadmeAnyFromPod' => 'ReadmeMdInRoot' => {
-                filename => 'README.md',
+                filename => $readme,
                 location => 'root',
                 type     => 'markdown',
             }
