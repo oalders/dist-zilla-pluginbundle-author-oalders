@@ -12,6 +12,7 @@ sub configure {
     # Stolen from Dist::Zilla::PluginBundle::Author::DBOOK
     my @dirty_files = qw(dist.ini Changes README.pod);
     my @from_build  = qw(INSTALL LICENSE META.json);
+    my @copy = ( 'cpanfile', 'README' );
 
     my @plugins = (
         'AutoPrereqs',
@@ -20,10 +21,11 @@ sub configure {
         'CPANFile',
         'ConfirmRelease',
         'ContributorsFile',
-        [ 'CopyFilesFromBuild' => { copy => [ 'cpanfile', 'README' ] } ],
+        [ 'CopyFilesFromBuild' => { copy => \@copy } ],
         'ExecDir',
         [ 'GithubMeta' => { issues => 1 } ],
         'ExtraTests',
+        [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
         [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
         'Git::Contributors',
         #[ 'Git::NextVersion' => { first_version => '0.000001' } ],
