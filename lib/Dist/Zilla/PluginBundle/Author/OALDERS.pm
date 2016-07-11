@@ -14,6 +14,9 @@ sub configure {
     my @from_build  = qw(INSTALL LICENSE META.json);
     my @copy = ( 'cpanfile', $readme );
 
+    # Must come before Git::Commit
+    $self->add_plugins(['NextRelease' => { allow_dirty => \@dirty_files }]);
+
     my @plugins = (
         'AutoPrereqs',
         'BumpVersionAfterRelease',
@@ -42,7 +45,6 @@ sub configure {
         'MetaYAML',
         'MinimumPerl',
         'ModuleBuild',
-        'NextRelease',
         'PkgVersion',
         'Pod2Readme',
         'PodCoverageTests',
