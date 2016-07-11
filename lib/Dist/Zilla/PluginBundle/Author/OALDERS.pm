@@ -15,7 +15,7 @@ sub configure {
     my @copy = ( 'cpanfile', $readme );
 
     # Must come before Git::Commit
-    $self->add_plugins(['NextRelease' => { allow_dirty => \@dirty_files }]);
+    $self->add_plugins('NextRelease');
 
     my @plugins = (
         'AutoPrereqs',
