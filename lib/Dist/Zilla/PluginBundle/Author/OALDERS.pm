@@ -5,6 +5,7 @@ package Dist::Zilla::PluginBundle::Author::OALDERS;
 
 use Moose;
 use List::AllUtils qw( first );
+use Types::Path::Tiny qw( Path );
 use Types::Standard qw( ArrayRef Maybe Str );
 
 with(
@@ -22,7 +23,8 @@ has stopwords => (
 
 has stopwords_file => (
     is      => 'ro',
-    isa     => Maybe [Str],
+    isa     => Maybe [Path],
+    coerce => 1,
     default => sub {
         first { -e } ( '.stopwords', 'stopwords' );
     },
@@ -99,12 +101,7 @@ sub _all_stopwords {
     push @stopwords, @{ $self->stopwords } if $self->_has_stopwords;
 
     if ( $self->stopwords_file ) {
-        open my $fh, '<:encoding(UTF-8)', $self->stopwords_file;
-        while (<$fh>) {
-            chomp;
-            push @stopwords, $_;
-        }
-        close $fh;
+        push @stopwords, $self->stopwords_file->lines( { chomp => 1 });
     }
 
     return \@stopwords;

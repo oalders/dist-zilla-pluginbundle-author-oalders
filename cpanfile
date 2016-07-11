@@ -3,6 +3,7 @@ requires "Dist::Zilla::Role::PluginBundle::Easy" => "0";
 requires "Dist::Zilla::Role::PluginBundle::PluginRemover" => "0";
 requires "List::AllUtils" => "0";
 requires "Moose" => "0";
+requires "Types::Path::Tiny" => "0";
 requires "Types::Standard" => "0";
 requires "feature" => "0";
 requires "perl" => "5.010";
