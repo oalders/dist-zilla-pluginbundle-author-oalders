@@ -4,22 +4,43 @@ use feature qw( say );
 package Dist::Zilla::PluginBundle::Author::OALDERS;
 
 use Moose;
-with('Dist::Zilla::Role::PluginBundle::Easy');
+use List::AllUtils qw( first );
+use Types::Standard qw( ArrayRef Maybe Str );
+
+with(
+    'Dist::Zilla::Role::PluginBundle::Easy',
+    'Dist::Zilla::Role::PluginBundle::PluginRemover',
+);
+
+has stopwords => (
+    traits    => ['Array'],
+    is        => 'ro',
+    isa       => ArrayRef [Str],
+    predicate => '_has_stopwords',
+    required  => 0,
+);
+
+has stopwords_file => (
+    is      => 'ro',
+    isa     => Maybe [Str],
+    default => sub {
+        first { -e } ( '.stopwords', 'stopwords' );
+    },
+);
 
 sub configure {
     my $self = shift;
 
-    my $readme = 'README.md';
-    my @dirty_files = ('dist.ini', 'Changes', $readme);
+    my $readme      = 'README.md';
+    my @dirty_files = ( 'dist.ini', 'Changes', $readme );
     my @from_build  = qw(INSTALL LICENSE META.json);
-    my @copy = ( 'cpanfile', $readme );
+    my @copy        = ( 'cpanfile', $readme );
 
     # Must come before Git::Commit
     $self->add_plugins('NextRelease');
 
     my @plugins = (
         'AutoPrereqs',
-        'BumpVersionAfterRelease',
         'CheckChangesHasContent',
         'CPANFile',
         'ConfirmRelease',
@@ -32,7 +53,6 @@ sub configure {
         [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
         'Git::Commit',
         'Git::Contributors',
-        #[ 'Git::NextVersion' => { first_version => '0.000001' } ],
         'Git::Tag',
         'Git::Push',
         'InstallGuide',
@@ -59,11 +79,10 @@ sub configure {
                 type     => 'markdown',
             }
         ],
-        'RewriteVersion',
         'ShareDir',
         'Test::CPAN::Changes',
         'Test::Perl::Critic',
-        'Test::PodSpelling',
+        [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'TestRelease',
         'Test::Synopsis',
         'TravisCI::StatusBadge',
@@ -71,6 +90,31 @@ sub configure {
     );
 
     $self->add_plugins($_) for @plugins;
+}
+
+sub _all_stopwords {
+    my $self = shift;
+
+    my @stopwords = $self->_default_stopwords;
+    push @stopwords, @{ $self->stopwords } if $self->_has_stopwords;
+
+    if ( $self->stopwords_file ) {
+        open my $fh, '<:encoding(UTF-8)', $self->stopwords_file;
+        while (<$fh>) {
+            chomp;
+            push @stopwords, $_;
+        }
+        close $fh;
+    }
+
+    return \@stopwords;
+}
+
+sub _default_stopwords {
+    qw(
+        Alders
+        Alders'
+    );
 }
 
 __PACKAGE__->meta->make_immutable;
