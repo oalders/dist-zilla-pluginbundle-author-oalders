@@ -79,3 +79,15 @@ __PACKAGE__->meta->make_immutable;
 #ABSTRACT: A plugin bundle for distributions built by OALDERS
 __END__
 
+=head2 configure
+
+No docs for the time being, but you can see the bundled plugin by checking
+c<configure()> in the module source.
+
+=head1 SEE ALSO
+
+I used L<https://metacpan.org/pod/Dist::Zilla::PluginBundle::RJBS> and
+L<https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::DBOOK> as
+templates to get my own bundle started.
+
+=cut
