@@ -8,6 +8,17 @@ Dist::Zilla::PluginBundle::Author::OALDERS - A plugin bundle for distributions b
 
 version 0.000001
 
+## configure
+
+No docs for the time being, but you can see the bundled plugin by checking
+c&lt;configure()> in the module source.
+
+# SEE ALSO
+
+I used [https://metacpan.org/pod/Dist::Zilla::PluginBundle::RJBS](https://metacpan.org/pod/Dist::Zilla::PluginBundle::RJBS) and
+[https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::DBOOK](https://metacpan.org/pod/Dist::Zilla::PluginBundle::Author::DBOOK) as
+templates to get my own bundle started.
+
 # AUTHOR
 
 Olaf Alders <olaf@wundercounter.com>
