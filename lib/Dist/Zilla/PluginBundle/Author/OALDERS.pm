@@ -30,6 +30,7 @@ sub configure {
         'ExtraTests',
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
         [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
+        'Git::Commit',
         'Git::Contributors',
         #[ 'Git::NextVersion' => { first_version => '0.000001' } ],
         'Git::Tag',
