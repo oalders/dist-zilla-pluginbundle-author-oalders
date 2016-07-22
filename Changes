@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+    - Copy Makefile.PL from build.
 
 0.000002  2016-07-22 10:50:13-04:00 America/Toronto
     - Adds support for .stopwords files.

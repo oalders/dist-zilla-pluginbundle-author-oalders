@@ -36,7 +36,7 @@ sub configure {
     my $readme      = 'README.md';
     my @dirty_files = ( 'dist.ini', 'Changes', $readme );
     my @from_build  = qw(INSTALL LICENSE META.json);
-    my @copy        = ( 'cpanfile', $readme );
+    my @copy        = ( 'cpanfile', 'Makefile.PL', $readme );
 
     # Must come before Git::Commit
     $self->add_plugins('NextRelease');
