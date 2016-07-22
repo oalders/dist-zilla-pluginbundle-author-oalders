@@ -1,4 +1,3 @@
-requires "DDP" => "0";
 requires "Dist::Zilla::Role::PluginBundle::Easy" => "0";
 requires "Dist::Zilla::Role::PluginBundle::PluginRemover" => "0";
 requires "List::AllUtils" => "0";
