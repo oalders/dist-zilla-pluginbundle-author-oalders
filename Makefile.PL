@@ -9,12 +9,8 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "A plugin bundle for distributions built by OALDERS",
   "AUTHOR" => "Olaf Alders <olaf\@wundercounter.com>",
-  "BUILD_REQUIRES" => {
-    "Module::Build" => "0.28"
-  },
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0,
-    "Module::Build" => "0.28"
+    "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "Dist-Zilla-PluginBundle-Author-OALDERS",
   "LICENSE" => "perl",
@@ -42,7 +38,6 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Role::PluginBundle::Easy" => 0,
   "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
   "List::AllUtils" => 0,
-  "Module::Build" => "0.28",
   "Moose" => 0,
   "Types::Path::Tiny" => 0,
   "Types::Standard" => 0,

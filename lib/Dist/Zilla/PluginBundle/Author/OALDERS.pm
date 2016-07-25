@@ -67,7 +67,6 @@ sub configure {
         'MetaResources',
         'MetaYAML',
         'MinimumPerl',
-        'ModuleBuild',
         'PkgVersion',
         'Pod2Readme',
         'PodCoverageTests',
