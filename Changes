@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+
+0.000004  2016-07-25 22:46:45-04:00 America/Toronto
     - remove usage of [ModuleBuild].
 
 0.000003  2016-07-22 18:44:36-04:00 America/Toronto
