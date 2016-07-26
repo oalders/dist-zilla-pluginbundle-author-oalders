@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+
+0.000005  2016-07-26 19:01:55-04:00 America/Toronto
     - Fix encoding of stopwords.
     - Use MAXMIND's TidyAll plugin.
     - Add Test::TidyAll plugin.
