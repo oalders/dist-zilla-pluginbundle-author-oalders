@@ -62,6 +62,7 @@ sub configure {
         'MakeMaker',
         'Manifest',
         'ManifestSkip',
+        'MAXMIND::TidyAll',
         'MetaJSON',
         [ 'MetaNoIndex' => { directory => [ 'examples', 't', 'xt' ] } ],
         'MetaResources',
