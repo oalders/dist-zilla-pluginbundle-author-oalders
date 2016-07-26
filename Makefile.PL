@@ -9,12 +9,8 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "A plugin bundle for distributions built by OALDERS",
   "AUTHOR" => "Olaf Alders <olaf\@wundercounter.com>",
-  "BUILD_REQUIRES" => {
-    "Module::Build" => "0.28"
-  },
   "CONFIGURE_REQUIRES" => {
-    "ExtUtils::MakeMaker" => 0,
-    "Module::Build" => "0.28"
+    "ExtUtils::MakeMaker" => 0
   },
   "DISTNAME" => "Dist-Zilla-PluginBundle-Author-OALDERS",
   "LICENSE" => "perl",
@@ -31,6 +27,13 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
+  "TEST_REQUIRES" => {
+    "File::Spec" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
+    "Test::More" => 0,
+    "blib" => "1.01"
+  },
   "VERSION" => "0.000003",
   "test" => {
     "TESTS" => "t/*.t"
@@ -41,11 +44,15 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Dist::Zilla::Role::PluginBundle::Easy" => 0,
   "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
+  "File::Spec" => 0,
+  "IO::Handle" => 0,
+  "IPC::Open3" => 0,
   "List::AllUtils" => 0,
-  "Module::Build" => "0.28",
   "Moose" => 0,
+  "Test::More" => 0,
   "Types::Path::Tiny" => 0,
   "Types::Standard" => 0,
+  "blib" => "1.01",
   "feature" => 0,
   "strict" => 0,
   "warnings" => 0

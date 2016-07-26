@@ -9,17 +9,17 @@ requires "perl" => "5.010";
 requires "strict" => "0";
 requires "warnings" => "0";
 
-on 'build' => sub {
-  requires "Module::Build" => "0.28";
-};
-
 on 'test' => sub {
+  requires "File::Spec" => "0";
+  requires "IO::Handle" => "0";
+  requires "IPC::Open3" => "0";
+  requires "Test::More" => "0";
+  requires "blib" => "1.01";
   requires "perl" => "5.010";
 };
 
 on 'configure' => sub {
   requires "ExtUtils::MakeMaker" => "0";
-  requires "Module::Build" => "0.28";
   requires "perl" => "5.010";
 };
 
