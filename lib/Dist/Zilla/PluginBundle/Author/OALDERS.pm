@@ -101,7 +101,7 @@ sub _all_stopwords {
     push @stopwords, @{ $self->stopwords } if $self->_has_stopwords;
 
     if ( $self->stopwords_file ) {
-        push @stopwords, $self->stopwords_file->lines( { chomp => 1 });
+        push @stopwords, $self->stopwords_file->lines_utf8( { chomp => 1 });
     }
 
     return \@stopwords;
