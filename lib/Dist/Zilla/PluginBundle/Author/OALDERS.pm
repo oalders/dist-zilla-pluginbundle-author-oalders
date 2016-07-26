@@ -1,9 +1,10 @@
-use strict;
-use warnings;
-use feature qw( say );
 package Dist::Zilla::PluginBundle::Author::OALDERS;
 
 use Moose;
+use namespace::autoclean;
+
+use feature qw( say );
+
 use List::AllUtils qw( first );
 use Types::Path::Tiny qw( Path );
 use Types::Standard qw( ArrayRef Maybe Str );
@@ -24,7 +25,7 @@ has stopwords => (
 has stopwords_file => (
     is      => 'ro',
     isa     => Maybe [Path],
-    coerce => 1,
+    coerce  => 1,
     default => sub {
         first { -e } ( '.stopwords', 'stopwords' );
     },
@@ -83,10 +84,10 @@ sub configure {
         ],
         'ShareDir',
         'Test::CPAN::Changes',
-        'Test::Perl::Critic',
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'TestRelease',
         'Test::Synopsis',
+        'Test::TidyAll',
         'TravisCI::StatusBadge',
         'UploadToCPAN',
     );
@@ -101,7 +102,7 @@ sub _all_stopwords {
     push @stopwords, @{ $self->stopwords } if $self->_has_stopwords;
 
     if ( $self->stopwords_file ) {
-        push @stopwords, $self->stopwords_file->lines_utf8( { chomp => 1 });
+        push @stopwords, $self->stopwords_file->lines_utf8( { chomp => 1 } );
     }
 
     return \@stopwords;
