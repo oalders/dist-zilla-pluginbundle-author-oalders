@@ -76,10 +76,9 @@ has stopwords_file => (
 sub configure {
     my $self = shift;
 
-    my $readme      = 'README.md';
-    my @dirty_files = ( 'dist.ini', 'Changes', $readme );
-    my @from_build  = qw(INSTALL LICENSE META.json);
-    my @copy        = ( 'cpanfile', 'Makefile.PL', $readme );
+    my $readme     = 'README.md';
+    my @from_build = qw(INSTALL LICENSE META.json);
+    my @copy       = ( 'cpanfile', 'Makefile.PL', $readme );
 
     # Must come before Git::Commit
     $self->add_plugins('NextRelease');
@@ -95,7 +94,11 @@ sub configure {
         [ 'GithubMeta' => { issues => 1 } ],
         'ExtraTests',
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
-        [ 'Git::Check' => { allow_dirty => [ @dirty_files, @from_build ] } ],
+        [
+            'Git::Check' => {
+                allow_dirty => [ 'dist.ini', 'Changes', @copy, @from_build ]
+            }
+        ],
         'Git::Commit',
         'Git::Contributors',
         'Git::Tag',
