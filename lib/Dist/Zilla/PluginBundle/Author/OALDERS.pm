@@ -80,6 +80,8 @@ sub configure {
     my @from_build = qw(INSTALL LICENSE META.json);
     my @copy       = ( 'cpanfile', 'Makefile.PL', $readme );
 
+    my @allow_dirty = ( 'dist.ini', 'Changes', @copy, @from_build );
+
     # Must come before Git::Commit
     $self->add_plugins('NextRelease');
 
@@ -94,12 +96,12 @@ sub configure {
         [ 'GithubMeta' => { issues => 1 } ],
         'ExtraTests',
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
+        [ 'Git::Check'     => { allow_dirty      => \@allow_dirty } ],
         [
-            'Git::Check' => {
-                allow_dirty => [ 'dist.ini', 'Changes', @copy, @from_build ]
-            }
+            'Git::Commit' => 'commit generated files' => {
+                allow_dirty => \@allow_dirty,
+            },
         ],
-        'Git::Commit',
         'Git::Contributors',
         'Git::Tag',
         'Git::Push',
