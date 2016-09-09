@@ -77,8 +77,8 @@ sub configure {
     my $self = shift;
 
     my $readme     = 'README.md';
-    my @from_build = qw(INSTALL LICENSE META.json);
-    my @copy       = ( 'cpanfile', 'Makefile.PL', $readme );
+    my @from_build = qw(INSTALL META.json);
+    my @copy       = ( 'cpanfile', 'LICENSE', 'Makefile.PL', $readme );
 
     my @allow_dirty = ( 'dist.ini', 'Changes', @copy, @from_build );
 
