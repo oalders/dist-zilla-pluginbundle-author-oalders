@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+    - Copy LICENSE file to dist
 
 0.000006  2016-08-05 23:18:41-04:00 America/Toronto
     - Explicitly use all plugins so that they're added to the cpanfile.
