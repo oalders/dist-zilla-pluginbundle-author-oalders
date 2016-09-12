@@ -1,6 +1,8 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+
+0.000007  2016-09-12 17:55:26-04:00 America/Toronto
     - Copy LICENSE file to dist
 
 0.000006  2016-08-05 23:18:41-04:00 America/Toronto
