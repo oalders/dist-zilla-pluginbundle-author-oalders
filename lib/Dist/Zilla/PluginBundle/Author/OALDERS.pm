@@ -76,11 +76,13 @@ has stopwords_file => (
 sub configure {
     my $self = shift;
 
-    my $readme     = 'README.md';
-    my @from_build = qw(INSTALL META.json);
-    my @copy       = ( 'cpanfile', 'LICENSE', 'Makefile.PL', $readme );
+    my $readme = 'README.md';
+    my @copy   = (
+        'cpanfile', 'Install', 'LICENSE', 'Makefile.PL', 'META.json',
+        $readme
+    );
 
-    my @allow_dirty = ( 'dist.ini', 'Changes', @copy, @from_build );
+    my @allow_dirty = ( 'dist.ini', 'Changes', @copy );
 
     # Must come before Git::Commit
     $self->add_plugins('NextRelease');
