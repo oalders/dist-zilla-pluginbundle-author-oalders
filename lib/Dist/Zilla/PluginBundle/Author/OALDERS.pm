@@ -32,7 +32,6 @@ use Dist::Zilla::Plugin::MetaResources;
 use Dist::Zilla::Plugin::MetaYAML;
 use Dist::Zilla::Plugin::MinimumPerl;
 use Dist::Zilla::Plugin::PkgVersion;
-use Dist::Zilla::Plugin::Pod2Readme;
 use Dist::Zilla::Plugin::PodCoverageTests;
 use Dist::Zilla::Plugin::PodWeaver;
 use Dist::Zilla::Plugin::Prereqs;
@@ -119,15 +118,14 @@ sub configure {
         'MetaYAML',
         'MinimumPerl',
         'PkgVersion',
-        'Pod2Readme',
         'PodCoverageTests',
         'PodWeaver',
         'Prereqs',
         'PruneCruft',
         [
-            'ReadmeAnyFromPod' => 'ReadmeMdInRoot' => {
+            'ReadmeAnyFromPod' => 'ReadmeMdInBuild' => {
                 filename => $readme,
-                location => 'root',
+                location => 'build',
                 type     => 'markdown',
             }
         ],
