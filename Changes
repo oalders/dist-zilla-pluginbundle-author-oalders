@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
 
+0.000009  2017-01-03 22:27:06-05:00 America/Toronto
+    - Fix order of README generation
+
 0.000008  2016-10-19 17:56:18-04:00 America/Toronto
     - Copy INSTALL and META.json from build
 
