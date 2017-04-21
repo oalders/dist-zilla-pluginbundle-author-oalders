@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
 
+0.000010  2017-04-21 09:27:47-04:00 America/Toronto
+    - Adds Dist::Zilla::Plugin::Test::ReportPrereqs
+
 0.000009  2017-01-03 22:27:06-05:00 America/Toronto
     - Fix order of README generation
 
