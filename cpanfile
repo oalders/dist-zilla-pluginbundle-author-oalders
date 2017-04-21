@@ -33,6 +33,7 @@ requires "Dist::Zilla::Plugin::ReadmeAnyFromPod" => "0";
 requires "Dist::Zilla::Plugin::ShareDir" => "0";
 requires "Dist::Zilla::Plugin::Test::CPAN::Changes" => "0";
 requires "Dist::Zilla::Plugin::Test::PodSpelling" => "0";
+requires "Dist::Zilla::Plugin::Test::ReportPrereqs" => "0";
 requires "Dist::Zilla::Plugin::Test::Synopsis" => "0";
 requires "Dist::Zilla::Plugin::Test::TidyAll" => "0";
 requires "Dist::Zilla::Plugin::TestRelease" => "0";
@@ -50,6 +51,7 @@ requires "namespace::autoclean" => "0";
 requires "perl" => "5.010";
 
 on 'test' => sub {
+  requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
   requires "IO::Handle" => "0";
   requires "IPC::Open3" => "0";
@@ -59,6 +61,10 @@ on 'test' => sub {
   requires "perl" => "5.010";
   requires "strict" => "0";
   requires "warnings" => "0";
+};
+
+on 'test' => sub {
+  recommends "CPAN::Meta" => "2.120900";
 };
 
 on 'configure' => sub {

@@ -41,6 +41,7 @@ use Dist::Zilla::Plugin::ShareDir;
 use Dist::Zilla::Plugin::Test::CPAN::Changes;
 use Dist::Zilla::Plugin::Test::PodSpelling;
 use Dist::Zilla::Plugin::TestRelease;
+use Dist::Zilla::Plugin::Test::ReportPrereqs;
 use Dist::Zilla::Plugin::Test::Synopsis;
 use Dist::Zilla::Plugin::Test::TidyAll;
 use Dist::Zilla::Plugin::TravisCI::StatusBadge;
@@ -133,6 +134,7 @@ sub configure {
         'Test::CPAN::Changes',
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'TestRelease',
+        'Test::ReportPrereqs',
         'Test::Synopsis',
         'Test::TidyAll',
         'TravisCI::StatusBadge',
