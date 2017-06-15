@@ -35,6 +35,7 @@ use Dist::Zilla::Plugin::PkgVersion;
 use Dist::Zilla::Plugin::PodCoverageTests;
 use Dist::Zilla::Plugin::PodWeaver;
 use Dist::Zilla::Plugin::Prereqs;
+use Dist::Zilla::Plugin::PromptIfStale;
 use Dist::Zilla::Plugin::PruneCruft;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
 use Dist::Zilla::Plugin::RunExtraTests;
@@ -86,6 +87,20 @@ sub configure {
     my @allow_dirty = ( 'dist.ini', 'Changes', @copy );
 
     my @plugins = (
+        [
+            'PromptIfStale' => 'stale modules, build' => {
+                phase  => 'build',
+                module => [ $self->meta->name ]
+            }
+        ],
+        [
+            'PromptIfStale' => 'stale modules, release' => {
+                phase             => 'release',
+                check_all_plugins => 1,
+                check_all_prereqs => 1,
+            }
+        ],
+
         'AutoPrereqs',
         'CheckChangesHasContent',
         'CPANFile',
@@ -104,7 +119,7 @@ sub configure {
             }
         ],
 
-        [ 'GithubMeta' => { issues => 1 } ],
+        [ 'GithubMeta'     => { issues           => 1 } ],
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
         [ 'Git::Check'     => { allow_dirty      => \@allow_dirty } ],
         [
