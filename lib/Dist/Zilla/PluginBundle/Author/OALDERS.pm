@@ -85,17 +85,6 @@ sub configure {
 
     my @allow_dirty = ( 'dist.ini', 'Changes', @copy );
 
-    # Must come before Git::Commit
-    $self->add_plugins(
-        [
-            'NextRelease' => {
-                time_zone => 'UTC',
-                format =>
-                    q{%-8v  %{yyyy-MM-dd HH:mm:ss'Z'}d%{ (TRIAL RELEASE)}T},
-            }
-        ]
-    );
-
     my @plugins = (
         'AutoPrereqs',
         'CheckChangesHasContent',
@@ -106,6 +95,14 @@ sub configure {
         'ExecDir',
 
         'RunExtraTests',
+
+        [
+            'NextRelease' => {
+                time_zone => 'UTC',
+                format =>
+                    q{%-8v  %{yyyy-MM-dd HH:mm:ss'Z'}d%{ (TRIAL RELEASE)}T},
+            }
+        ],
 
         [ 'GithubMeta' => { issues => 1 } ],
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
