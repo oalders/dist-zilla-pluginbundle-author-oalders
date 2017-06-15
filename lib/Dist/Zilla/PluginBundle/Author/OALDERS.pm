@@ -26,6 +26,7 @@ use Dist::Zilla::Plugin::MakeMaker;
 use Dist::Zilla::Plugin::Manifest;
 use Dist::Zilla::Plugin::ManifestSkip;
 use Dist::Zilla::Plugin::MetaJSON;
+use Dist::Zilla::Plugin::MetaConfig;
 use Dist::Zilla::Plugin::MetaNoIndex;
 use Dist::Zilla::Plugin::MetaResources;
 use Dist::Zilla::Plugin::MetaYAML;
@@ -127,6 +128,7 @@ sub configure {
         [ 'MetaNoIndex' => { directory => [ 'examples', 't', 'xt' ] } ],
         'MetaResources',
         'MetaYAML',
+        'MetaConfig',
         'MinimumPerl',
         'PkgVersion',
         'PodCoverageTests',
