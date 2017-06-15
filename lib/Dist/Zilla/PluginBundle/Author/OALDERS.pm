@@ -12,7 +12,6 @@ use Dist::Zilla::Plugin::ConfirmRelease;
 use Dist::Zilla::Plugin::ContributorsFile;
 use Dist::Zilla::Plugin::CopyFilesFromBuild;
 use Dist::Zilla::Plugin::ExecDir;
-use Dist::Zilla::Plugin::ExtraTests;
 use Dist::Zilla::Plugin::Git::Check;
 use Dist::Zilla::Plugin::Git::Commit;
 use Dist::Zilla::Plugin::Git::Contributors;
@@ -37,6 +36,7 @@ use Dist::Zilla::Plugin::PodWeaver;
 use Dist::Zilla::Plugin::Prereqs;
 use Dist::Zilla::Plugin::PruneCruft;
 use Dist::Zilla::Plugin::ReadmeAnyFromPod;
+use Dist::Zilla::Plugin::RunExtraTests;
 use Dist::Zilla::Plugin::ShareDir;
 use Dist::Zilla::Plugin::Test::CPAN::Changes;
 use Dist::Zilla::Plugin::Test::PodSpelling;
@@ -103,8 +103,10 @@ sub configure {
         'ContributorsFile',
         [ 'CopyFilesFromBuild' => { copy => \@copy } ],
         'ExecDir',
+
+        'RunExtraTests',
+
         [ 'GithubMeta' => { issues => 1 } ],
-        'ExtraTests',
         [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
         [ 'Git::Check'     => { allow_dirty      => \@allow_dirty } ],
         [
