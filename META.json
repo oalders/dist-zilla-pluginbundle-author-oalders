@@ -128,7 +128,7 @@
          "web" : "https://github.com/oalders/dist-zilla-pluginbundle-author-oalders"
       }
    },
-   "version" : "0.000011",
+   "version" : "0.000012",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.026000"
@@ -328,7 +328,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.000011",
+                  "tag" : "v0.000012",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },
