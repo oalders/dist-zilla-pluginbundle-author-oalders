@@ -26,6 +26,8 @@ before_install:
 install:
   - cpm install
   - which dzil
+  - perl -pi -e "s/\[@/;[@/" dist.ini
   - dzil install
+  - perl -pi -e "s/;[@/[@/" dist.ini
 script:
   - dzil test --all
