@@ -11,6 +11,7 @@ use Dist::Zilla::Plugin::CheckChangesHasContent;
 use Dist::Zilla::Plugin::ConfirmRelease;
 use Dist::Zilla::Plugin::ContributorsFile;
 use Dist::Zilla::Plugin::CopyFilesFromBuild;
+use Dist::Zilla::Plugin::CopyFilesFromRelease;
 use Dist::Zilla::Plugin::ExecDir;
 use Dist::Zilla::Plugin::Git::Check;
 use Dist::Zilla::Plugin::Git::Commit;
@@ -78,13 +79,14 @@ has stopwords_file => (
 sub configure {
     my $self = shift;
 
-    my $readme = 'README.md';
-    my @copy   = (
-        'cpanfile', 'Install', 'LICENSE', 'Makefile.PL', 'META.json',
-        $readme
+    my $readme          = 'README.md';
+    my @copy_from_build = (
+        'cpanfile', 'LICENSE', 'Makefile.PL', 'META.json', $readme,
     );
+    my @copy_from_release = ('Install');
 
-    my @allow_dirty = ( 'dist.ini', 'Changes', @copy );
+    my @allow_dirty
+        = ( 'dist.ini', 'Changes', @copy_from_build, @copy_from_release );
 
     my @plugins = (
         [
@@ -105,7 +107,7 @@ sub configure {
 
         'AutoPrereqs',
         'CheckChangesHasContent',
-        'MakeMaker', # needs to precede InstallGuide
+        'MakeMaker',    # needs to precede InstallGuide
         'CPANFile',
         'ContributorsFile',
         'InstallGuide',
@@ -120,7 +122,7 @@ sub configure {
 
         'Prereqs',
 
-        [ 'CopyFilesFromBuild' => { copy => \@copy } ],
+        [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
         'ExecDir',
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
@@ -133,6 +135,11 @@ sub configure {
 
         'RunExtraTests',
 
+        'MinimumPerl',
+        'PkgVersion',
+        'PodWeaver',
+        'PruneCruft',
+
         [
             'NextRelease' => {
                 time_zone => 'UTC',
@@ -142,7 +149,8 @@ sub configure {
         ],
 
         [ 'GithubMeta'     => { issues           => 1 } ],
-        [ 'Git::GatherDir' => { exclude_filename => \@copy } ],
+        [ 'Git::GatherDir' => { exclude_filename => \@copy_from_build } ],
+        [ 'CopyFilesFromRelease' => { filename => [@copy_from_release] } ],
         [ 'Git::Check'     => { allow_dirty      => \@allow_dirty } ],
         [
             'Git::Commit' => 'commit generated files' => {
@@ -153,10 +161,6 @@ sub configure {
         'Git::Tag',
         'Git::Push',
 
-        'MinimumPerl',
-        'PkgVersion',
-        'PodWeaver',
-        'PruneCruft',
         [
             'ReadmeAnyFromPod' => 'ReadmeMdInBuild' => {
                 filename => $readme,
