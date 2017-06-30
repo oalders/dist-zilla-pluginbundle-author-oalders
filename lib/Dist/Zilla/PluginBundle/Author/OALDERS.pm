@@ -101,18 +101,35 @@ sub configure {
             }
         ],
 
+        'MAXMIND::TidyAll',
+
         'AutoPrereqs',
         'CheckChangesHasContent',
-        'ConfirmRelease',
         'MakeMaker',    # needs to precede InstallGuide
         'CPANFile',
         'ContributorsFile',
         'InstallGuide',
         'MetaJSON',
         'MetaYAML',
+        'Manifest',
+        'ManifestSkip',
+        [ 'MetaNoIndex' => { directory => [ 'examples', 't', 'xt' ] } ],
+        'MetaConfig',
+        'MetaResources',
         'License',
+
+        'Prereqs',
+
         [ 'CopyFilesFromBuild' => { copy => \@copy } ],
         'ExecDir',
+
+        [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
+        'PodCoverageTests',
+        'Test::CPAN::Changes',
+        'TestRelease',
+        'Test::ReportPrereqs',
+        'Test::Synopsis',
+        'Test::TidyAll',
 
         'RunExtraTests',
 
@@ -135,17 +152,10 @@ sub configure {
         'Git::Contributors',
         'Git::Tag',
         'Git::Push',
-        'Manifest',
-        'ManifestSkip',
-        'MAXMIND::TidyAll',
-        [ 'MetaNoIndex' => { directory => [ 'examples', 't', 'xt' ] } ],
-        'MetaResources',
-        'MetaConfig',
+
         'MinimumPerl',
         'PkgVersion',
-        'PodCoverageTests',
         'PodWeaver',
-        'Prereqs',
         'PruneCruft',
         [
             'ReadmeAnyFromPod' => 'ReadmeMdInBuild' => {
@@ -155,13 +165,8 @@ sub configure {
             }
         ],
         'ShareDir',
-        'Test::CPAN::Changes',
-        [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
-        'TestRelease',
-        'Test::ReportPrereqs',
-        'Test::Synopsis',
-        'Test::TidyAll',
         'TravisCI::StatusBadge',
+        'ConfirmRelease',
         'UploadToCPAN',
     );
 
