@@ -22,7 +22,8 @@ before_install:
   - build-perl
   - perl -V
   - cpanm -n App::cpm
+  - cd $TRAVIS_BUILD_DIR
 install:
   - cpm install
 script:
-  - prove -l -j$(test-jobs) $(test-files)   # parallel testing
+  - dzil test --all
