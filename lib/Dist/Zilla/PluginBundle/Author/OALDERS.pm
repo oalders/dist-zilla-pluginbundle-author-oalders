@@ -104,7 +104,7 @@ sub configure {
         'AutoPrereqs',
         'CheckChangesHasContent',
         'ConfirmRelease',
-        'MakeMaker', # needs to precede InstallGuide
+        'MakeMaker',    # needs to precede InstallGuide
         'CPANFile',
         'ContributorsFile',
         'InstallGuide',
