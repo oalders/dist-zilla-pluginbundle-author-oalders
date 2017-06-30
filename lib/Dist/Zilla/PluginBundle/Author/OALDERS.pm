@@ -150,8 +150,8 @@ sub configure {
 
         [ 'GithubMeta'     => { issues           => 1 } ],
         [ 'Git::GatherDir' => { exclude_filename => \@copy_from_build } ],
-        [ 'CopyFilesFromRelease' => { filename => [@copy_from_release] } ],
-        [ 'Git::Check'     => { allow_dirty      => \@allow_dirty } ],
+        [ 'CopyFilesFromRelease' => { filename    => [@copy_from_release] } ],
+        [ 'Git::Check'           => { allow_dirty => \@allow_dirty } ],
         [
             'Git::Commit' => 'commit generated files' => {
                 allow_dirty => \@allow_dirty,
