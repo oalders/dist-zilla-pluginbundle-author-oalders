@@ -4,6 +4,7 @@ requires "Dist::Zilla::Plugin::CheckChangesHasContent" => "0";
 requires "Dist::Zilla::Plugin::ConfirmRelease" => "0";
 requires "Dist::Zilla::Plugin::ContributorsFile" => "0";
 requires "Dist::Zilla::Plugin::CopyFilesFromBuild" => "0";
+requires "Dist::Zilla::Plugin::CopyFilesFromRelease" => "0";
 requires "Dist::Zilla::Plugin::ExecDir" => "0";
 requires "Dist::Zilla::Plugin::Git::Check" => "0";
 requires "Dist::Zilla::Plugin::Git::Commit" => "0";
