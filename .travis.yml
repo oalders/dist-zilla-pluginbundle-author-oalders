@@ -25,10 +25,11 @@ before_install:
   - cd $TRAVIS_BUILD_DIR
 install:
   - cpm install -g Dist::Zilla::Plugin::Test::Compile
+  - cpm install -g Dist::Zilla::PluginBundle::Author::OALDERS
   - cpm install -g
   - which dzil
-  - perl -pi -e "s/\[@/;[@/" dist.ini
+    #  - perl -pi -e "s/\[@/;[@/" dist.ini
   - dzil install
-  - perl -pi -e "s/;[@/[@/" dist.ini
+    #- perl -pi -e "s/;[@/[@/" dist.ini
 script:
   - dzil test --all
