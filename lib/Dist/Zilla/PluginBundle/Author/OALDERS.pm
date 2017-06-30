@@ -110,7 +110,6 @@ sub configure {
         'MakeMaker',    # needs to precede InstallGuide
         'CPANFile',
         'ContributorsFile',
-        'InstallGuide',
         'MetaJSON',
         'MetaYAML',
         'Manifest',
@@ -119,10 +118,10 @@ sub configure {
         'MetaConfig',
         'MetaResources',
         'License',
+        'InstallGuide',
 
         'Prereqs',
 
-        [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
         'ExecDir',
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
@@ -139,6 +138,8 @@ sub configure {
         'PkgVersion',
         'PodWeaver',
         'PruneCruft',
+
+        [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
 
         [
             'NextRelease' => {
