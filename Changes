@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
 
+0.000013  2017-06-30 22:52:35Z
+    - Re-order more plugins
+
 0.000012  2017-06-29 22:11:19Z
     - Re-order some plugins
 
