@@ -25,5 +25,6 @@ before_install:
   - cd $TRAVIS_BUILD_DIR
 install:
   - cpm install
+  - dzil install
 script:
   - dzil test --all
