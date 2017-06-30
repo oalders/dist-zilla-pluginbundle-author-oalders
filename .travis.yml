@@ -24,8 +24,8 @@ before_install:
   - cpanm -n App::cpm
   - cd $TRAVIS_BUILD_DIR
 install:
-  - cpm install Dist::Zilla::Plugin::Test::Compile
-  - cpm install
+  - cpm install -g Dist::Zilla::Plugin::Test::Compile
+  - cpm install -g
   - which dzil
   - perl -pi -e "s/\[@/;[@/" dist.ini
   - dzil install
