@@ -149,8 +149,12 @@ sub configure {
             }
         ],
 
-        [ 'GithubMeta'     => { issues           => 1 } ],
-        [ 'Git::GatherDir' => { exclude_filename => \@copy_from_build } ],
+        [ 'GithubMeta' => { issues => 1 } ],
+        [
+            'Git::GatherDir' => {
+                exclude_filename => [ @copy_from_build, @copy_from_release ]
+            }
+        ],
         [ 'CopyFilesFromRelease' => { filename    => [@copy_from_release] } ],
         [ 'Git::Check'           => { allow_dirty => \@allow_dirty } ],
         [
