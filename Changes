@@ -2,6 +2,11 @@ Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
 
+0.000015  2017-07-04 20:45:30Z
+    - Exclude copy from release files from Git::GatherDir
+    - Add Config::Slicer role
+    - Move plugins from module to dist.ini
+
 0.000014  2017-07-04 16:21:36Z
     - Copy Install from release rather than build
 

@@ -61,7 +61,7 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Plugin::TestRelease" => 0,
     "Dist::Zilla::Plugin::TravisCI::StatusBadge" => 0,
     "Dist::Zilla::Plugin::UploadToCPAN" => 0,
-    "Dist::Zilla::PluginBundle::ConfigSlicer" => 0,
+    "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
     "Dist::Zilla::Role::PluginBundle::Easy" => 0,
     "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
     "List::AllUtils" => 0,
@@ -83,7 +83,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.000014",
+  "VERSION" => "0.000015",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -135,7 +135,7 @@ my %FallbackPrereqs = (
   "Dist::Zilla::Plugin::TestRelease" => 0,
   "Dist::Zilla::Plugin::TravisCI::StatusBadge" => 0,
   "Dist::Zilla::Plugin::UploadToCPAN" => 0,
-  "Dist::Zilla::PluginBundle::ConfigSlicer" => 0,
+  "Dist::Zilla::Role::PluginBundle::Config::Slicer" => 0,
   "Dist::Zilla::Role::PluginBundle::Easy" => 0,
   "Dist::Zilla::Role::PluginBundle::PluginRemover" => 0,
   "ExtUtils::MakeMaker" => 0,
