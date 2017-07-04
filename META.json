@@ -49,6 +49,7 @@
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
             "Dist::Zilla::Plugin::ContributorsFile" : "0",
             "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0",
+            "Dist::Zilla::Plugin::CopyFilesFromRelease" : "0",
             "Dist::Zilla::Plugin::ExecDir" : "0",
             "Dist::Zilla::Plugin::Git::Check" : "0",
             "Dist::Zilla::Plugin::Git::Commit" : "0",
@@ -128,7 +129,7 @@
          "web" : "https://github.com/oalders/dist-zilla-pluginbundle-author-oalders"
       }
    },
-   "version" : "0.000013",
+   "version" : "0.000014",
    "x_Dist_Zilla" : {
       "perl" : {
          "version" : "5.026000"
@@ -358,7 +359,7 @@
                   "branch" : null,
                   "changelog" : "Changes",
                   "signed" : 0,
-                  "tag" : "v0.000013",
+                  "tag" : "v0.000014",
                   "tag_format" : "v%v",
                   "tag_message" : "v%v"
                },

@@ -2,6 +2,9 @@ Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
 
+0.000014  2017-07-04 16:21:36Z
+    - Copy Install from release rather than build
+
 0.000013  2017-06-30 22:52:35Z
     - Re-order more plugins
 
