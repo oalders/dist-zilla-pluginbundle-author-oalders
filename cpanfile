@@ -55,6 +55,7 @@ requires "namespace::autoclean" => "0";
 requires "perl" => "5.010";
 
 on 'test' => sub {
+  requires "Code::TidyAll::Plugin::SortLines::Naturally" => "0.000003";
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
   requires "IO::Handle" => "0";

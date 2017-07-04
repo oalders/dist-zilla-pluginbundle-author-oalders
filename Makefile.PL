@@ -73,6 +73,7 @@ my %WriteMakefileArgs = (
     "namespace::autoclean" => 0
   },
   "TEST_REQUIRES" => {
+    "Code::TidyAll::Plugin::SortLines::Naturally" => "0.000003",
     "ExtUtils::MakeMaker" => 0,
     "File::Spec" => 0,
     "IO::Handle" => 0,
@@ -91,6 +92,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "Code::TidyAll::Plugin::SortLines::Naturally" => "0.000003",
   "Dist::Zilla::Plugin::AutoPrereqs" => 0,
   "Dist::Zilla::Plugin::CPANFile" => 0,
   "Dist::Zilla::Plugin::CheckChangesHasContent" => 0,
