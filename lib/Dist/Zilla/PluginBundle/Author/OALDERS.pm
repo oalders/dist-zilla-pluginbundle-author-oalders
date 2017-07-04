@@ -13,7 +13,7 @@ use Types::Standard qw( ArrayRef Maybe Str );
 with(
     'Dist::Zilla::Role::PluginBundle::Easy',
     'Dist::Zilla::Role::PluginBundle::PluginRemover',
-    'Dist::Zilla::Role::PluginBundle::Config::Slicer', # needs to come last
+    'Dist::Zilla::Role::PluginBundle::Config::Slicer',    # needs to come last
 );
 
 has stopwords => (
