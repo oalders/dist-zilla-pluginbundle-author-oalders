@@ -56,10 +56,12 @@ requires "perl" => "5.010";
 
 on 'test' => sub {
   requires "Code::TidyAll::Plugin::SortLines::Naturally" => "0.000003";
+  requires "Code::TidyAll::Plugin::UniqueLines" => "0.000003";
   requires "ExtUtils::MakeMaker" => "0";
   requires "File::Spec" => "0";
   requires "IO::Handle" => "0";
   requires "IPC::Open3" => "0";
+  requires "Perl::Tidy" => "20170521";
   requires "Test::Code::TidyAll" => "0.49";
   requires "Test::More" => "0";
   requires "blib" => "1.01";
