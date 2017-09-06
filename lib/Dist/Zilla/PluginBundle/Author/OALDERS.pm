@@ -70,7 +70,6 @@ sub configure {
         'MetaJSON',
         'MetaYAML',
         'Manifest',
-        'ManifestSkip',
         [ 'MetaNoIndex' => { directory => [ 'examples', 't', 'xt' ] } ],
         'MetaConfig',
         'MetaResources',
