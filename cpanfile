@@ -64,7 +64,6 @@ on 'test' => sub {
   requires "Perl::Tidy" => "20170521";
   requires "Test::Code::TidyAll" => "0.49";
   requires "Test::More" => "0";
-  requires "blib" => "1.01";
   requires "perl" => "5.010";
   requires "strict" => "0";
   requires "warnings" => "0";
