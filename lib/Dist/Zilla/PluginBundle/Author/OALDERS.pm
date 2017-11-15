@@ -95,9 +95,6 @@ sub configure {
         'PodWeaver',
         'PruneCruft',
 
-        [ '@Git::VersionManager' =>
-                { commit_files_after_release => \@allow_dirty } ],
-
         [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
 
         [ 'GithubMeta' => { issues => 1 } ],
@@ -125,6 +122,8 @@ sub configure {
     );
 
     $self->add_plugins($_) for @plugins;
+    $self->add_bundle( '@Git::VersionManager' =>
+            { commit_files_after_release => \@allow_dirty } );
 }
 
 sub _all_stopwords {
