@@ -3,6 +3,8 @@ package Dist::Zilla::PluginBundle::Author::OALDERS;
 use Moose;
 use namespace::autoclean;
 
+our $VERSION = '0.000017';
+
 use feature qw( say );
 
 use List::AllUtils qw( first );
