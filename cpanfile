@@ -42,6 +42,7 @@ requires "Dist::Zilla::Plugin::Test::TidyAll" => "0";
 requires "Dist::Zilla::Plugin::TestRelease" => "0";
 requires "Dist::Zilla::Plugin::TravisCI::StatusBadge" => "0";
 requires "Dist::Zilla::Plugin::UploadToCPAN" => "0";
+requires "Dist::Zilla::PluginBundle::Git::VersionManager" => "0.002";
 requires "Dist::Zilla::Role::PluginBundle::Config::Slicer" => "0";
 requires "Dist::Zilla::Role::PluginBundle::Easy" => "0";
 requires "Dist::Zilla::Role::PluginBundle::PluginRemover" => "0";
