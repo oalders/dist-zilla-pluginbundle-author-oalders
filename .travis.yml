@@ -8,8 +8,6 @@ perl:
   - "5.18"
   - "5.16"
   - "5.14"
-  - "5.12"
-  - "5.10"
 notifications:
   email:
     recipients:
@@ -17,4 +15,14 @@ notifications:
     on_success: always
     on_failure: always
 before_install:
-  - eval $(curl https://travis-perl.github.io/init) --auto
+  - eval $(curl https://travis-perl.github.io/init) --perl
+install:
+  - cpanm App::cpm
+  - cpm install -g --with-develop --with-suggests
+  - dzil authordeps --missing | xargs cpm install -g
+  - dzil listdeps --missing | xargs cpm install -g
+cache:
+  directories:
+    - ~/perl5
+script:
+  - dzil test
