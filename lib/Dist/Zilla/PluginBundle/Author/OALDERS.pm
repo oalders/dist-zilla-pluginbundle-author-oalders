@@ -95,15 +95,10 @@ sub configure {
         'PodWeaver',
         'PruneCruft',
 
-        [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
+        [ '@Git::VersionManager' =>
+                { commit_files_after_release => \@allow_dirty } ],
 
-        [
-            'NextRelease' => {
-                time_zone => 'UTC',
-                format =>
-                    q{%-8v  %{yyyy-MM-dd HH:mm:ss'Z'}d%{ (TRIAL RELEASE)}T},
-            }
-        ],
+        [ 'CopyFilesFromBuild' => { copy => \@copy_from_build } ],
 
         [ 'GithubMeta' => { issues => 1 } ],
         [
@@ -113,13 +108,7 @@ sub configure {
         ],
         [ 'CopyFilesFromRelease' => { filename    => [@copy_from_release] } ],
         [ 'Git::Check'           => { allow_dirty => \@allow_dirty } ],
-        [
-            'Git::Commit' => 'commit generated files' => {
-                allow_dirty => \@allow_dirty,
-            },
-        ],
         'Git::Contributors',
-        'Git::Tag',
         'Git::Push',
 
         [
