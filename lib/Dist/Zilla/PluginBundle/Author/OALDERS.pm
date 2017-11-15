@@ -93,7 +93,6 @@ sub configure {
         'RunExtraTests',
 
         'MinimumPerl',
-        'PkgVersion',
         'PodWeaver',
         'PruneCruft',
 
