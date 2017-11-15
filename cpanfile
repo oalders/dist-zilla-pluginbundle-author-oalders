@@ -25,7 +25,6 @@ requires "Dist::Zilla::Plugin::MetaNoIndex" => "0";
 requires "Dist::Zilla::Plugin::MetaResources" => "0";
 requires "Dist::Zilla::Plugin::MetaYAML" => "0";
 requires "Dist::Zilla::Plugin::MinimumPerl" => "0";
-requires "Dist::Zilla::Plugin::PkgVersion" => "0";
 requires "Dist::Zilla::Plugin::PodCoverageTests" => "0";
 requires "Dist::Zilla::Plugin::PodWeaver" => "0";
 requires "Dist::Zilla::Plugin::Prereqs" => "0";

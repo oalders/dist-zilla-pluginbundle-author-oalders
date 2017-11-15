@@ -107,7 +107,6 @@ sub configure {
         [ 'CopyFilesFromRelease' => { filename    => [@copy_from_release] } ],
         [ 'Git::Check'           => { allow_dirty => \@allow_dirty } ],
         'Git::Contributors',
-        'Git::Push',
 
         [
             'ReadmeAnyFromPod' => 'ReadmeMdInBuild' => {
@@ -125,6 +124,7 @@ sub configure {
     $self->add_plugins($_) for @plugins;
     $self->add_bundle( '@Git::VersionManager' =>
             { commit_files_after_release => \@allow_dirty } );
+    $self->add_plugins('Git::Push');
 }
 
 sub _all_stopwords {
