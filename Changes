@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
+{{$NEXT}}
+
 0.000017  2017-11-16 03:15:23Z
     - Start using Git::VersionManager
 
