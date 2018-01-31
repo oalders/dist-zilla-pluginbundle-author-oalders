@@ -122,8 +122,14 @@ sub configure {
     );
 
     $self->add_plugins($_) for @plugins;
-    $self->add_bundle( '@Git::VersionManager' =>
-            { commit_files_after_release => \@allow_dirty } );
+    $self->add_bundle(
+        '@Git::VersionManager' => {
+            commit_files_after_release => \@allow_dirty,
+            'RewriteVersion::Transitional.fallback_version_provider' =>
+                'Git::NextVersion',
+        }
+    );
+
     $self->add_plugins('Git::Push');
 }
 
