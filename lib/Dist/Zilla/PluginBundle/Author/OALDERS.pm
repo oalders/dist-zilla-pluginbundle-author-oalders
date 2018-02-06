@@ -80,7 +80,7 @@ sub configure {
 
         'Prereqs',
 
-        'ExecDir',
+        [ 'ExecDir' => { dir => 'script' } ],
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'PodCoverageTests',
