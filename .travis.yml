@@ -1,28 +1,33 @@
-sudo: false
-language: perl
-perl:
-  - "5.26"
-  - "5.24"
-  - "5.22"
-  - "5.20"
-  - "5.18"
-  - "5.16"
-  - "5.14"
-notifications:
-  email:
-    recipients:
-      - olaf@wundersolutions.com
-    on_success: always
-    on_failure: always
+---
+addons:
+  apt:
+    packages:
+      - aspell
 before_install:
-  - eval $(curl https://travis-perl.github.io/init) --perl
-install:
-  - cpanm App::cpm
-  - cpm install -g --with-develop --with-suggests
-  - dzil authordeps --missing | xargs cpm install -g
-  - dzil listdeps --missing | xargs cpm install -g
+  - 'eval $(curl https://travis-perl.github.io/init) --perl'
 cache:
   directories:
-    - ~/perl5
+    - '~/perl5'
+install:
+  - 'cpanm App::cpm'
+  - 'cpm install -g --with-develop --with-suggests'
+  - 'dzil authordeps --missing | xargs cpm install -g'
+  - 'dzil listdeps --missing | xargs cpm install -g'
+language: perl
+notifications:
+  email:
+    on_failure: always
+    on_success: always
+    recipients:
+      - olaf@wundersolutions.com
+perl:
+  - '5.14'
+  - '5.16'
+  - '5.18'
+  - '5.20'
+  - '5.22'
+  - '5.24'
+  - '5.26'
 script:
-  - dzil test
+  - 'dzil test'
+sudo: 'false'
