@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
+{{$NEXT}}
+
 0.000019  2018-05-15 13:51:44Z
     - Default ExecDir to /script
 
