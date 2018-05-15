@@ -162,7 +162,7 @@ __END__
 =head2 configure
 
 No docs for the time being, but you can see the bundled plugin by checking
-c<configure()> in the module source.
+C<configure()> in the module source.
 
 =head1 SEE ALSO
 
