@@ -78,7 +78,20 @@ sub configure {
         'License',
         'InstallGuide',
 
-        'Prereqs',
+        # Stolen from Dist::Zilla::PluginBundle::DROLSKY
+        [
+            'Prereqs' => 'Modules for use with tidyall' => {
+                -phase                                        => 'develop',
+                -type                                         => 'requires',
+                'Code::TidyAll'                               => '0.71',
+                'Code::TidyAll::Plugin::SortLines::Naturally' => '0.000003',
+                'Code::TidyAll::Plugin::Test::Vars'           => '0.04',
+                'Parallel::ForkManager'                       => '1.19',
+                'Perl::Critic'                                => '1.132',
+                'Perl::Tidy'                                  => '20180220',
+                'Test::Vars'                                  => '0.014',
+            }
+        ],
 
         [ 'ExecDir' => { dir => 'script' } ],
 
