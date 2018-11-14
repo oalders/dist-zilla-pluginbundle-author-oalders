@@ -3,7 +3,7 @@ package Dist::Zilla::PluginBundle::Author::OALDERS;
 use Moose;
 use namespace::autoclean;
 
-our $VERSION = '0.000020';
+our $VERSION = '0.000021';
 
 use feature qw( say );
 
