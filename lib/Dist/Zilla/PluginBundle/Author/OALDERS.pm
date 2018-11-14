@@ -84,6 +84,7 @@ sub configure {
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'PodCoverageTests',
+        'PodSyntaxTests',
         'Test::CPAN::Changes',
         'TestRelease',
         'Test::ReportPrereqs',
