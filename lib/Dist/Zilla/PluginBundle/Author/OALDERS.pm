@@ -86,6 +86,7 @@ sub configure {
                 'Code::TidyAll'                               => '0.71',
                 'Code::TidyAll::Plugin::SortLines::Naturally' => '0.000003',
                 'Code::TidyAll::Plugin::Test::Vars'           => '0.04',
+                'Code::TidyAll::Plugin::UniqueLines'          => '0.000003',
                 'Parallel::ForkManager'                       => '1.19',
                 'Perl::Critic'                                => '1.132',
                 'Perl::Tidy'                                  => '20180220',
