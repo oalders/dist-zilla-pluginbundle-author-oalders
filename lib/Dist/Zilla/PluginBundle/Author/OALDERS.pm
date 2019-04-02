@@ -47,6 +47,11 @@ sub configure {
     my @allow_dirty
         = ( 'dist.ini', 'Changes', @copy_from_build, @copy_from_release );
 
+    my $static_install_mode = $self->payload->{'StaticInstall.mode'}
+        // 'auto';
+    my $static_install_dry_run = $self->payload->{'StaticInstall.dry_run'}
+        // 1;
+
     my @plugins = (
         [
             'PromptIfStale' => 'stale modules, build' => {
@@ -130,8 +135,15 @@ sub configure {
                 type     => 'markdown',
             }
         ],
+        [
+            'StaticInstall' => {
+                ':version' => '0.005', mode => $static_install_mode,
+                dry_run    => $static_install_dry_run
+            }
+        ],
         'ShareDir',
         'TravisCI::StatusBadge',
+        'CheckIssues',
         'ConfirmRelease',
         'UploadToCPAN',
     );
