@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+    - Fix cpanfile
 
 0.000022  2019-04-02 16:59:55Z
     - Add StaticInstall and CheckIssues
