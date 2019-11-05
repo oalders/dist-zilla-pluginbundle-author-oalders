@@ -102,13 +102,17 @@ sub configure {
         [ 'ExecDir' => { dir => 'script' } ],
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
+        'MojibakeTests',
         'PodCoverageTests',
         'PodSyntaxTests',
         'Test::CPAN::Changes',
+        'Test::EOL',
+        'Test::Portability',
         'TestRelease',
         'Test::ReportPrereqs',
         'Test::Synopsis',
         'Test::TidyAll',
+        'Test::Version',
 
         'RunExtraTests',
 
