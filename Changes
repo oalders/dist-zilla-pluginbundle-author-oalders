@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
+{{$NEXT}}
+
 0.000024  2019-11-06 02:26:15Z
     - Add MojibakeTests, Test::EOL, Test::Portability and Test::Version
 
