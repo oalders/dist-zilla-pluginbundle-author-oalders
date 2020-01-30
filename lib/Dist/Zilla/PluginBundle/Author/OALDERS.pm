@@ -67,7 +67,7 @@ sub configure {
             }
         ],
 
-        'MAXMIND::TidyAll',
+        'OALDERS::TidyAll',
 
         'AutoPrereqs',
         'CheckChangesHasContent',
