@@ -103,10 +103,10 @@ sub configure {
 
         [ 'Test::PodSpelling' => { stopwords => $self->_all_stopwords } ],
         'MojibakeTests',
-        'PodCoverageTests',
         'PodSyntaxTests',
         'Test::CPAN::Changes',
         'Test::EOL',
+        'Test::Pod::Coverage::Configurable',
         'Test::Portability',
         'TestRelease',
         'Test::ReportPrereqs',
