@@ -1,6 +1,6 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
-{{$NEXT}}
+0.000027  2020-02-24 21:05:45Z
     - s/PodCoverageTests/Test::Pod::Coverage::Configurable/
 
 0.000026  2020-01-30 16:00:50Z
