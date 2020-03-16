@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+    - Add Dist::Zilla::Plugin::Test::Pod::Coverage::Configurable to deps
 
 0.000027  2020-02-24 21:05:45Z
     - s/PodCoverageTests/Test::Pod::Coverage::Configurable/
