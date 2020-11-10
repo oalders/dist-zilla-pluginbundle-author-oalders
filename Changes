@@ -1,6 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
 {{$NEXT}}
+    - Remove TravisCI::StatusBadge
 
 0.000028  2020-03-16 20:19:25Z
     - Add Dist::Zilla::Plugin::Test::Pod::Coverage::Configurable to deps

@@ -146,7 +146,6 @@ sub configure {
             }
         ],
         'ShareDir',
-        'TravisCI::StatusBadge',
         'CheckIssues',
         'ConfirmRelease',
         'UploadToCPAN',
