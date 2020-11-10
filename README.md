@@ -2,11 +2,9 @@
 
 Dist::Zilla::PluginBundle::Author::OALDERS - A plugin bundle for distributions built by OALDERS
 
-[![Build Status](https://travis-ci.org/oalders/dist-zilla-pluginbundle-author-oalders.png?branch=master)](https://travis-ci.org/oalders/dist-zilla-pluginbundle-author-oalders)
-
 # VERSION
 
-version 0.000028
+version 0.000029
 
 ## configure
 
