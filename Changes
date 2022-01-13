@@ -1,5 +1,7 @@
 Revision history for Dist-Zilla-PluginBundle-Author-OALDERS
 
+{{$NEXT}}
+
 0.000030  2022-01-13 21:35:47Z
     - Remove Dist::Zilla::Plugin::OALDERS::TidyAll
 
