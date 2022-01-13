@@ -66,9 +66,6 @@ sub configure {
                 check_all_prereqs => 1,
             }
         ],
-
-        'OALDERS::TidyAll',
-
         'AutoPrereqs',
         'CheckChangesHasContent',
         'MakeMaker',    # needs to precede InstallGuide
